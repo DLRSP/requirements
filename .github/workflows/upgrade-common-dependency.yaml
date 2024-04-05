@@ -1,0 +1,13 @@
+---
+name: Upgrade common dependencies
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Runs every Monday at 8:00 UTC
+    - cron: '0 8 * * *'
+
+jobs:
+  upgrade:
+    uses: DLRSP/workflows/.github/workflows/upgrade-common-dependency.yaml@v1.12.0
+    secrets: inherit
