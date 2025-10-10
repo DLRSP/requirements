@@ -238,9 +238,9 @@ typing-extensions==4.15.0 \
     #   exceptiongroup
     #   tox
     #   virtualenv
-virtualenv==20.34.0 \
-    --hash=sha256:341f5afa7eee943e4984a9207c025feedd768baff6753cd660c857ceb3e36026 \
-    --hash=sha256:44815b2c9dee7ed86e387b842a84f20b93f7f417f95886ca1996a72a4138eb1a
+virtualenv==20.35.1 \
+    --hash=sha256:041dac43b6899858a91838b616599e80000e545dee01a21172a6a46746472cb2 \
+    --hash=sha256:1d9d93cd01d35b785476e2fa7af711a98d40d227a078941695bbae394f8737e2
     # via tox
 wheel==0.45.1 \
     --hash=sha256:661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729 \
