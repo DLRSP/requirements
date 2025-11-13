@@ -242,9 +242,9 @@ typing-extensions==4.15.0 \
     #   exceptiongroup
     #   tox
     #   virtualenv
-virtualenv==20.35.3 \
-    --hash=sha256:4f1a845d131133bdff10590489610c98c168ff99dc75d6c96853801f7f67af44 \
-    --hash=sha256:63d106565078d8c8d0b206d48080f938a8b25361e19432d2c9db40d2899c810a
+virtualenv==20.35.4 \
+    --hash=sha256:643d3914d73d3eeb0c552cbb12d7e82adf0e504dbf86a3182f8771a153a1971c \
+    --hash=sha256:c21c9cede36c9753eeade68ba7d523529f228a403463376cf821eaae2b650f1b
     # via tox
 wheel==0.45.1 \
     --hash=sha256:661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729 \
@@ -256,9 +256,9 @@ zipp==3.23.0 \
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-pip==25.2 \
-    --hash=sha256:578283f006390f85bb6282dffb876454593d637f5d1be494b5202ce4877e71f2 \
-    --hash=sha256:6d67a2b4e7f14d8b31b8b52648866fa717f45a1eb70e83002f4331d07e953717
+pip==25.3 \
+    --hash=sha256:8d0538dbbd7babbd207f261ed969c65de439f6bc9e5dbd3b3b9a77f25d95f343 \
+    --hash=sha256:9655943313a94722b7774661c21049070f6bbb0a1516bf02f7c8d5d9201514cd
     # via -r dev.in
 setuptools==80.9.0 \
     --hash=sha256:062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922 \
