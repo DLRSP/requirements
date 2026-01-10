@@ -1,31 +1,31 @@
 # Requirements
 
-Repository centralizzato per la gestione delle dipendenze Python comuni utilizzate nei progetti dell'organizzazione DLRSP.
+Centralized repository for managing common Python dependencies used in DLRSP organization projects.
 
-## 📋 Descrizione
+## 📋 Description
 
-Questo repository contiene file di requirements Python compilati per diverse versioni di Python, utilizzati come dipendenze comuni in tutti i progetti dell'organizzazione.
+This repository contains compiled Python requirements files for different Python versions, used as common dependencies across all organization projects.
 
-## 📦 File Disponibili
+## 📦 Available Files
 
-### Requirements per sviluppo
+### Development Requirements
 - `py38-dev.txt` - Python 3.8
 - `py39-dev.txt` - Python 3.9
 - `py310-dev.txt` - Python 3.10
 - `py311-dev.txt` - Python 3.11
 
-### Requirements per documentazione
-- `py-docs.txt` - Dipendenze per la generazione della documentazione (MkDocs)
+### Documentation Requirements
+- `py-docs.txt` - Dependencies for documentation generation (MkDocs)
 
-### File sorgente
-- `dev.in` - File sorgente per i requirements di sviluppo
-- `docs.in` - File sorgente per i requirements di documentazione
+### Source Files
+- `dev.in` - Source file for development requirements
+- `docs.in` - Source file for documentation requirements
 
-## 🚀 Utilizzo
+## 🚀 Usage
 
-### Installazione tramite URL GitHub
+### Installation via GitHub URL
 
-Per utilizzare questi requirements in un progetto, puoi installarli direttamente da GitHub:
+To use these requirements in a project, you can install them directly from GitHub:
 
 ```bash
 # For Python 3.10
@@ -38,9 +38,9 @@ pip install -r https://raw.githubusercontent.com/DLRSP/requirements/main/py311-d
 pip install -r https://raw.githubusercontent.com/DLRSP/requirements/main/py-docs.txt
 ```
 
-### Utilizzo in GitHub Actions
+### Usage in GitHub Actions
 
-Esempio di utilizzo in un workflow GitHub Actions:
+Example usage in a GitHub Actions workflow:
 
 ```yaml
 - name: Install dependencies
@@ -48,17 +48,17 @@ Esempio di utilizzo in un workflow GitHub Actions:
     pip install -r https://raw.githubusercontent.com/DLRSP/requirements/main/py310-dev.txt
 ```
 
-### Utilizzo con tag/versioni
+### Usage with Tags/Versions
 
-Per utilizzare una versione specifica, puoi fare riferimento a un tag:
+To use a specific version, you can reference a tag:
 
 ```bash
 pip install -r https://raw.githubusercontent.com/DLRSP/requirements/v1.0.0/py310-dev.txt
 ```
 
-## 🔄 Aggiornamento dei Requirements
+## 🔄 Updating Requirements
 
-I file `.txt` sono generati automaticamente dai file `.in` usando `pip-compile`:
+The `.txt` files are automatically generated from `.in` files using `pip-compile`:
 
 ```bash
 # For Python 3.10
@@ -71,35 +71,35 @@ pip-compile --allow-unsafe --generate-hashes --output-file=py311-dev.txt dev.in
 pip-compile --allow-unsafe --generate-hashes --output-file=py-docs.txt docs.in
 ```
 
-## 📝 Dipendenze Incluse
+## 📝 Included Dependencies
 
-### Requirements di sviluppo (`dev.in`)
-- `pip`, `setuptools`, `wheel` - Strumenti base
-- `tox`, `tox-py` - Testing e automazione
+### Development Requirements (`dev.in`)
+- `pip`, `setuptools`, `wheel` - Base tools
+- `tox`, `tox-py` - Testing and automation
 - `coverage` - Code coverage
-- `pytest`, `pytest-django`, `pytest-randomly` - Framework di testing
+- `pytest`, `pytest-django`, `pytest-randomly` - Testing frameworks
 
-### Requirements di documentazione (`docs.in`)
-- `mkdocs`, `mkdocs-material` - Generazione documentazione
-- `mkdocs-git-revision-date-plugin` - Plugin per date di revisione
+### Documentation Requirements (`docs.in`)
+- `mkdocs`, `mkdocs-material` - Documentation generation
+- `mkdocs-git-revision-date-plugin` - Plugin for revision dates
 
-## 🔧 Workflow Automatici
+## 🔧 Automated Workflows
 
-Questo repository utilizza workflow centralizzati da `DLRSP/workflows`:
-- **CI/CD**: Esegue test automatici su push e PR
-- **Upgrade Dependencies**: Aggiorna automaticamente le dipendenze comuni
-- **PR Rebase**: Esegue rebase automatico delle PR quando viene fatto push su main
+This repository uses centralized workflows from `DLRSP/workflows`:
+- **CI/CD**: Runs automated tests on push and PR
+- **Upgrade Dependencies**: Automatically updates common dependencies
+- **PR Rebase**: Automatically rebases PRs when push is made to main
 
-## 📚 Note
+## 📚 Notes
 
-- I file requirements sono generati con `--generate-hashes` per garantire sicurezza e riproducibilità
-- I pacchetti `pip`, `setuptools` e `wheel` sono marcati come `--allow-unsafe` in quanto necessari per l'installazione
-- Questo repository non è un package Python installabile, ma un repository di file requirements
+- Requirements files are generated with `--generate-hashes` to ensure security and reproducibility
+- The `pip`, `setuptools` and `wheel` packages are marked as `--allow-unsafe` as they are necessary for installation
+- This repository is not an installable Python package, but a repository of requirements files
 
-## 🤝 Contribuire
+## 🤝 Contributing
 
-Vedi [CONTRIBUTING.md](CONTRIBUTING.md) per le linee guida su come contribuire.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
 
-## 📄 Licenza
+## 📄 License
 
-MIT License - Vedi [LICENSE](LICENSE) per i dettagli.
+MIT License - See [LICENSE](LICENSE) for details.
