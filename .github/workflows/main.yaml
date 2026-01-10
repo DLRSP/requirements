@@ -13,30 +13,30 @@ on:
 jobs:
   verify-requirements:
     name: Verify Requirements
-    uses: DLRSP/workflows/.github/workflows/verify-requirements.yaml@v1.15.10
+    uses: DLRSP/workflows/.github/workflows/verify-requirements.yaml@v1.15.11
 
   upgrade-common:
     name: Upgrade Common Dependencies
-    uses: DLRSP/workflows/.github/workflows/upgrade-common-dependency.yaml@v1.15.10
+    uses: DLRSP/workflows/.github/workflows/upgrade-common-dependency.yaml@v1.15.11
     if: github.event_name == 'push' && contains(github.event.head_commit.message, 'dependencies')
 
   release-requirements:
     name: Release Requirements Updates
     needs: verify-requirements
-    uses: DLRSP/workflows/.github/workflows/release-requirements.yaml@v1.15.10
+    uses: DLRSP/workflows/.github/workflows/release-requirements.yaml@v1.15.11
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
   label:
     name: Label PR
-    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.10
+    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.11
     if: github.event_name == 'pull_request'
 
   rebase-pr:
     name: Rebase PR on Push
-    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.15.10
+    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.15.11
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
   label-merge-conflicts:
     name: Label Merge Conflicts
-    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.10
+    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.11
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
