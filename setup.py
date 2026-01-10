@@ -21,7 +21,7 @@ except FileNotFoundError:
 
 setup(
     name="dlrsp-requirements",
-    version="1.0.1",
+    version="1.0.2",
     description="Common Python requirements for DLRSP organization projects",
     long_description=open("README.md").read() if __import__("os").path.exists("README.md") else "",
     long_description_content_type="text/markdown",
