@@ -34,3 +34,18 @@ Issues = "https://github.com/DLRSP/requirements/issues"
 # Note: This package doesn't install any Python modules,
 # it's just a metadata package for dependency tracking.
 # The actual requirements files are in the repository root.
+
+# bump-my-version configuration
+[tool.bumpversion]
+current_version = "1.0.0"
+commit = true
+tag = true
+allow_dirty = true
+
+# Update version in pyproject.toml (modern format - PEP 621)
+[[tool.bumpversion.files]]
+filename = "./pyproject.toml"
+
+# Update version in setup.py (for compatibility)
+[[tool.bumpversion.files]]
+filename = "./setup.py"
