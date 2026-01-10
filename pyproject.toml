@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dlrsp-requirements"
-version = "1.0.4"
+version = "1.0.5"
 description = "Common Python requirements for DLRSP organization projects"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -37,7 +37,7 @@ Issues = "https://github.com/DLRSP/requirements/issues"
 
 # bump-my-version configuration
 [tool.bumpversion]
-current_version = "1.0.4"
+current_version = "1.0.5"
 commit = true
 tag = true
 allow_dirty = true
