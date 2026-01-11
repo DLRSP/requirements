@@ -8,6 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
+  ci:
+    name: Continuous Integration
+    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.15.19
+    secrets: inherit
+
   verify-requirements:
     name: Verify Requirements
     uses: DLRSP/workflows/.github/workflows/verify-requirements.yaml@v1.15.19
@@ -22,7 +27,7 @@ jobs:
   release-requirements:
     name: Release Requirements Updates
     needs: verify-requirements
-    uses: DLRSP/workflows/.github/workflows/release-requirements.yaml@v1.15.16
+    uses: DLRSP/workflows/.github/workflows/release-requirements.yaml@v1.15.19
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
 
