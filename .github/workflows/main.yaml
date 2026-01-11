@@ -1,4 +1,4 @@
-name: Requirements Management
+name: Python Requirements Management
 
 on:
   push:
