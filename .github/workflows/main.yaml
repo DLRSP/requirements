@@ -41,7 +41,7 @@ jobs:
 
   rebase-pr:
     name: Rebase PR on Push
-    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.15.28
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
 
