@@ -35,7 +35,7 @@ jobs:
 
   label:
     name: Label PR
-    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.28
     if: github.event_name == 'pull_request'
     secrets: inherit
 
