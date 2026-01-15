@@ -10,7 +10,7 @@ on:
 jobs:
   verify-requirements:
     name: Verify Requirements
-    uses: DLRSP/workflows/.github/workflows/verify-requirements.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/verify-requirements.yaml@v1.15.28
 
   upgrade-common:
     name: Upgrade Common Dependencies
@@ -27,12 +27,12 @@ jobs:
     secrets: inherit
 
   merge-pr-requirements:
-    name: Release Requirements Updates
+    name: Merge PR Requirements Updates
     needs: [verify-requirements, release-requirements]
-    uses: DLRSP/workflows/.github/workflows/release-requirements.yaml@v1.15.28
+    uses: DLRSP/workflows/.github/workflows/pr-approve-bots.yaml@v1.15.28
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
-
+  
   label:
     name: Label PR
     uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.28
@@ -47,6 +47,6 @@ jobs:
 
   label-merge-conflicts:
     name: Label Merge Conflicts
-    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.28
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
