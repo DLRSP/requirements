@@ -47,6 +47,6 @@ jobs:
 
   label-merge-conflicts:
     name: Label Merge Conflicts
-    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.28
+    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.29
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
