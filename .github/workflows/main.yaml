@@ -22,7 +22,7 @@ jobs:
   release-requirements:
     name: Release Requirements Updates
     needs: verify-requirements
-    uses: DLRSP/workflows/.github/workflows/release-requirements.yaml@v1.15.28
+    uses: DLRSP/workflows/.github/workflows/release-requirements.yaml@v1.15.29
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
 
