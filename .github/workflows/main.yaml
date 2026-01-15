@@ -29,7 +29,7 @@ jobs:
   merge-pr-requirements:
     name: Merge PR Requirements Updates
     needs: [verify-requirements, release-requirements]
-    uses: DLRSP/workflows/.github/workflows/pr-approve-bots.yaml@v1.15.28
+    uses: DLRSP/workflows/.github/workflows/pr-approve-bots.yaml@v1.15.29
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
   
