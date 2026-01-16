@@ -10,7 +10,7 @@ on:
 jobs:
   verify-requirements:
     name: Verify Requirements
-    uses: DLRSP/workflows/.github/workflows/verify-requirements.yaml@v1.15.28
+    uses: DLRSP/workflows/.github/workflows/verify-requirements.yaml@v1.15.45
 
   upgrade-common:
     name: Upgrade Common Dependencies
