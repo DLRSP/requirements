@@ -166,6 +166,15 @@ pip-log.txt
 .DS_Store
 
 #############
+## Agent scratch (never commit)
+#############
+ANALISI_*.md
+SOLUTIONS.md
+example-usage/
+BOT_CONFIGURATION.md
+PACKAGING_FORMAT.md
+
+#############
 ## Gh-Pages
 #############
 site
