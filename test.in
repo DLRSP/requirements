@@ -1,0 +1,3 @@
+# CI-only test tooling for django-* module tox/CI (not runtime, not PyPI wheels).
+coveralls
+django-jenkins

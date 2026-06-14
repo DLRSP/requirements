@@ -2,103 +2,82 @@
 
 Centralized repository for managing common Python dependencies used in DLRSP organization projects.
 
-## 📋 Description
+## Description
 
-This repository contains compiled Python requirements files for different Python versions, used as common dependencies across all organization projects.
+This repository contains compiled Python requirements files for different Python versions. These files are **CI and development only** — they are not bundled in PyPI wheels and are not used for production deploy of django-* modules.
 
-## 📦 Available Files
+## Available Files
 
-### Development Requirements
-- `py39-dev.txt` - Python 3.9
-- `py310-dev.txt` - Python 3.10
-- `py311-dev.txt` - Python 3.11
+### Development Requirements (CI/dev only)
+- `py39-dev.txt` through `py314-dev.txt` — tox, pytest, coverage, pip-tools, etc.
+
+### CI Test Requirements (CI only)
+- `py39-test.txt` through `py314-test.txt` — coveralls, django-jenkins, and transitive deps for module tox/CI
 
 ### Documentation Requirements
-- `py-docs.txt` - Dependencies for documentation generation (MkDocs)
+- `py310-docs.txt`, `py311-docs.txt` — MkDocs and related tooling
 
 ### Source Files
-- `dev.in` - Source file for development requirements
-- `docs.in` - Source file for documentation requirements
+- `dev.in` — development and tox tooling
+- `test.in` — CI-only test tooling (coveralls, django-jenkins)
+- `requirements/docs.in` — documentation generation
 
-## 🚀 Usage
+## Usage
 
-### Installation via GitHub URL
-
-To use these requirements in a project, you can install them directly from GitHub:
-
-```bash
-# For Python 3.10
-pip install -r https://raw.githubusercontent.com/DLRSP/requirements/main/py310-dev.txt
-
-# For Python 3.11
-pip install -r https://raw.githubusercontent.com/DLRSP/requirements/main/py311-dev.txt
-
-# For documentation
-pip install -r https://raw.githubusercontent.com/DLRSP/requirements/main/py-docs.txt
-```
-
-### Usage in GitHub Actions
-
-Example usage in a GitHub Actions workflow:
-
-```yaml
-- name: Install dependencies
-  run: |
-    pip install -r https://raw.githubusercontent.com/DLRSP/requirements/main/py310-dev.txt
-```
-
-### Usage with Tags/Versions
-
-To use a specific version, you can reference a tag:
+Install from a tagged release in module tox or CI workflows:
 
 ```bash
-pip install -r https://raw.githubusercontent.com/DLRSP/requirements/v1.0.0/py310-dev.txt
+# Dev tooling (Python 3.11 example)
+pip install -r https://raw.githubusercontent.com/DLRSP/requirements/v1.0.9/py311-dev.txt
+
+# CI test tooling
+pip install -r https://raw.githubusercontent.com/DLRSP/requirements/v1.0.9/py311-test.txt
 ```
 
-## 🔄 Updating Requirements
+In GitHub Actions, pin the workflows `requirements-ref` input to a semver tag (e.g. `v1.0.9`).
 
-The `.txt` files are automatically generated from `.in` files using `pip-compile`:
+## Updating Requirements
+
+The `.txt` files are generated from `.in` files using `pip-compile`:
 
 ```bash
-# For Python 3.10
-pip-compile --allow-unsafe --generate-hashes --output-file=py310-dev.txt dev.in
-
-# For Python 3.11
 pip-compile --allow-unsafe --generate-hashes --output-file=py311-dev.txt dev.in
-
-# For documentation
-pip-compile --allow-unsafe --generate-hashes --output-file=py-docs.txt docs.in
+pip-compile --allow-unsafe --generate-hashes --output-file=py311-test.txt test.in
 ```
 
-## 📝 Included Dependencies
+The `upgrade-common-dependency` workflow recompiles all `.in` files on schedule and opens PRs when dependencies change.
 
-### Development Requirements (`dev.in`)
-- `pip`, `setuptools`, `wheel` - Base tools
-- `tox`, `tox-py` - Testing and automation
-- `coverage` - Code coverage
-- `pytest`, `pytest-django`, `pytest-randomly` - Testing frameworks
+## Included Dependencies
 
-### Documentation Requirements (`docs.in`)
-- `mkdocs`, `mkdocs-material` - Documentation generation
-- `mkdocs-git-revision-date-plugin` - Plugin for revision dates
+### Development (`dev.in`)
+- `pip`, `setuptools`, `wheel` — base tools
+- `tox`, `tox-py` — test automation
+- `coverage`, `pytest`, `pytest-django`, `pytest-randomly` — testing
 
-## 🔧 Automated Workflows
+### CI test (`test.in`)
+- `coveralls` — coverage reporting in CI
+- `django-jenkins` — Jenkins integration for django-* module CI
+
+### Documentation (`requirements/docs.in`)
+- `mkdocs`, `mkdocs-material`, revision-date plugin
+
+## Automated Workflows
 
 This repository uses centralized workflows from `DLRSP/workflows`:
-- **CI/CD**: Runs automated tests on push and PR
-- **Upgrade Dependencies**: Automatically updates common dependencies
-- **PR Rebase**: Automatically rebases PRs when push is made to main
+- **Verify Requirements** — compile check + install dry-run for dev, test, docs, and django matrix locks
+- **Upgrade Common Dependencies** — weekly dependency upgrades via PR
+- **Release Requirements** — semver tag on merge to main
 
-## 📚 Notes
+## Notes
 
-- Requirements files are generated with `--generate-hashes` to ensure security and reproducibility
-- The `pip`, `setuptools` and `wheel` packages are marked as `--allow-unsafe` as they are necessary for installation
-- This repository is not an installable Python package, but a repository of requirements files
+- Requirements files use `--generate-hashes` for reproducibility
+- `dev.in` and `test.in` are **not** shipped in PyPI module wheels; runtime locks live per-module under `requirements/py*-django*.txt`
+- This repository is not an installable Python package
 
-## 🤝 Contributing
+## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## 📄 License
+## License
 
-MIT License - See [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](LICENSE).
