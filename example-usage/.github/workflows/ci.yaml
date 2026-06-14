@@ -1,0 +1,50 @@
+---
+name: CI Example
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      
+      - name: Install dependencies from DLRSP/requirements
+        run: |
+          # Determine which requirements file to use based on Python version
+          if [ "${{ matrix.python-version }}" == "3.9" ]; then
+            REQUIREMENTS_FILE="py39-dev.txt"
+          elif [ "${{ matrix.python-version }}" == "3.10" ]; then
+            REQUIREMENTS_FILE="py310-dev.txt"
+          else
+            REQUIREMENTS_FILE="py311-dev.txt"
+          fi
+          
+          pip install -r https://raw.githubusercontent.com/DLRSP/requirements/main/$REQUIREMENTS_FILE
+      
+      - name: Run tests
+        run: |
+          pytest tests/ -v
+      
+      - name: Generate coverage report
+        run: |
+          coverage run -m pytest
+          coverage report
+          coverage xml

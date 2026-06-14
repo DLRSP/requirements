@@ -9,7 +9,6 @@ This repository contains compiled Python requirements files for different Python
 ## 📦 Available Files
 
 ### Development Requirements
-- `py38-dev.txt` - Python 3.8
 - `py39-dev.txt` - Python 3.9
 - `py310-dev.txt` - Python 3.10
 - `py311-dev.txt` - Python 3.11
