@@ -7,6 +7,13 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+  checks: write
+  security-events: write
+
 jobs:
   verify-requirements:
     name: Verify Requirements
