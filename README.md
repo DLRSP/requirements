@@ -12,14 +12,14 @@ This repository contains compiled Python requirements files for different Python
 - `py39-dev.txt` through `py314-dev.txt` — tox, pytest, coverage, pip-tools, etc.
 
 ### CI Test Requirements (CI only)
-- `py39-test.txt` through `py314-test.txt` — coveralls, django-jenkins, and transitive deps for module tox/CI
+- `py39-test.txt` through `py314-test.txt` — optional shared CI tools (currently empty; reserved)
 
 ### Documentation Requirements
 - `py310-docs.txt`, `py311-docs.txt` — MkDocs and related tooling
 
 ### Source Files
 - `dev.in` — development and tox tooling
-- `test.in` — CI-only test tooling (coveralls, django-jenkins)
+- `test.in` — optional CI-only tools (empty; coverage via dev.in + codecov)
 - `requirements/docs.in` — documentation generation
 
 ## Usage
@@ -55,8 +55,8 @@ The `upgrade-common-dependency` workflow recompiles all `.in` files on schedule 
 - `coverage`, `pytest`, `pytest-django`, `pytest-randomly` — testing
 
 ### CI test (`test.in`)
-- `coveralls` — coverage reporting in CI
-- `django-jenkins` — Jenkins integration for django-* module CI
+- Reserved for optional shared CI tools; currently empty
+- Coverage: `coverage` in `dev.in`; upload via codecov in `workflows` ci.yaml
 
 ### Documentation (`requirements/docs.in`)
 - `mkdocs`, `mkdocs-material`, revision-date plugin

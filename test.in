@@ -1,3 +1,2 @@
-# CI-only test tooling for django-* module tox/CI (not runtime, not PyPI wheels).
-coveralls
-django-jenkins
+# CI-only optional tools for django-* modules (currently empty).
+# Coverage: py*-dev.txt (coverage, pytest). Upload: codecov in workflows ci.yaml.
