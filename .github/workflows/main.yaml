@@ -32,6 +32,8 @@ jobs:
     uses: DLRSP/workflows/.github/workflows/pr-policy-gate.yaml@main
     if: github.event_name == 'pull_request' && github.event.pull_request.draft == false
     secrets: inherit
+    with:
+      policy-path: policies/bot-policy-requirements.yaml
 
   label:
     name: Label PR
