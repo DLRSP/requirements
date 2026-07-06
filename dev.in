@@ -1,5 +1,5 @@
 pip
-setuptools<81  # pin <81: setuptools 82 removed pkg_resources; modules run tox with -W error::DeprecationWarning
+setuptools<84  # pin <81: setuptools 82 removed pkg_resources; modules run tox with -W error::DeprecationWarning
 wheel
 tox
 tox-py
